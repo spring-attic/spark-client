@@ -19,10 +19,11 @@ package org.springframework.cloud.task.app.spark.client;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
@@ -30,8 +31,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @author Soby Chacko
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes=SparkClientRunnerTests.TestSparkClientTaskApplication.class)
-@IntegrationTest({"spark.app-name:pi",
+@SpringBootTest(classes=SparkClientRunnerTests.TestSparkClientTaskApplication.class)
+@TestPropertySource({"spark.app-name:pi",
         "spark.app-jar:dummy.jar",
         "spark.app-class:org.apache.spark.examples.JavaSparkPi",
         "spark.app-args:10"})
